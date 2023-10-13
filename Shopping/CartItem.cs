@@ -34,9 +34,9 @@ namespace Shopping
             {
                 if (value < 0)
                 {
-                    throw new NotImplementedException();
+                    throw new WrongQuantityException();
                 }
-                Quantity = value;
+                _quantity = value;
             }
         }
         #endregion public methods
