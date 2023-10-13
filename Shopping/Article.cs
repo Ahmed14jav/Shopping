@@ -35,13 +35,13 @@ namespace Shopping
             }
             set
             {
-                string SpecialChar = @"[!?+-*/.,;-_]";
+                Regex regex =new Regex ("!?+-*/.,;-_");
                 string[] mots = value.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (value.Contains(SpecialChar))
+                if (regex.IsMatch(value))
                 {
                     throw new SpecialCharInDescriptionException();
                 }
-                else if (value.Length >=51)
+                else if (valuw.Length >=51)
                 {
                     throw new TooLongDescriptionException();
                 }

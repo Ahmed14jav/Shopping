@@ -15,6 +15,7 @@ namespace Shopping
             _cartItems = cartItems;
         }
 
+<<<<<<< HEAD
         public List<Article> Remove(Boolean clearCart = false)
         {
             List<Article> articlesReadyToCheckout = new List<Article>();
@@ -33,6 +34,9 @@ namespace Shopping
 
         public void Remove(List<CartItem> cartItemsToRemove)
 
+=======
+        public void Remove(List<CartItem> cartItemsToRemove = null)
+>>>>>>> 4dd09b0c195595cb0bf33329c648ecc757184173
         {
             throw new NotImplementedException();
         }
@@ -57,6 +61,12 @@ namespace Shopping
                 return currentCartPrice;
             }
         }
+
+        public int Cheapest()
+        {
+            throw new NotImplementedException();
+        }
         #endregion public methods
+        public class CartException : Exception { }
     }
 }
