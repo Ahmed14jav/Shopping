@@ -7,7 +7,6 @@ namespace Shopping
     {
         #region private attributes
         private List<CartItem> _cartItems = new List<CartItem>();
-        private float _price;
         #endregion private attributes
 
         #region public methods
@@ -50,7 +49,12 @@ namespace Shopping
         {
             get
             {
-                return _price;
+                float currentCartPrice = 0;
+                foreach(var item in _cartItems)
+                {
+                    currentCartPrice += item.Article.Price * item.Quantity;
+                }
+                return currentCartPrice;
             }
         }
         #endregion public methods

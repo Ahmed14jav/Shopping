@@ -16,7 +16,7 @@ namespace Shopping
             _quantity = quantity;
         }
 
-        public Article Article
+        public Article? Article
         {
             get
             {
@@ -32,7 +32,11 @@ namespace Shopping
             }
             set
             {
-                _quantity = value;
+                if (value < 0)
+                {
+                    throw new NotImplementedException();
+                }
+                Quantity = value;
             }
         }
         #endregion public methods
