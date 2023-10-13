@@ -1,4 +1,6 @@
-﻿namespace Shopping
+﻿using System.Text.RegularExpressions;
+
+namespace Shopping
 {
     public class Article
     {
@@ -33,7 +35,9 @@
             }
             set
             {
-                if (value == "Jacques+Daniel")
+                string SpecialChar = @"[!?+-*/.,;-_]";
+                string[] mots = value.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (value.Contains(SpecialChar))
                 {
                     throw new SpecialCharInDescriptionException();
                 }
@@ -41,7 +45,7 @@
                 {
                     throw new TooLongDescriptionException();
                 }
-                else if (value.Length <= 1)
+                else if (mots.Length < 2)
                 {
                     throw new TooShortDescriptionException();
                 }
@@ -56,6 +60,8 @@
                 return _price;
             }
         }
+
+      
         #endregion public methods
         public class ArticleException : Exception { }
         public class TooShortDescriptionException : ArticleException { }
