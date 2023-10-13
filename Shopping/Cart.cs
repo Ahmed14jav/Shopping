@@ -15,7 +15,7 @@ namespace Shopping
             _cartItems = cartItems;
         }
 
-<<<<<<< HEAD
+
         public List<Article> Remove(Boolean clearCart = false)
         {
             List<Article> articlesReadyToCheckout = new List<Article>();
@@ -32,11 +32,7 @@ namespace Shopping
 
         public void Release() { }
 
-        public void Remove(List<CartItem> cartItemsToRemove)
-
-=======
         public void Remove(List<CartItem> cartItemsToRemove = null)
->>>>>>> 4dd09b0c195595cb0bf33329c648ecc757184173
         {
             throw new NotImplementedException();
         }
@@ -62,11 +58,23 @@ namespace Shopping
             }
         }
 
-        public int Cheapest()
+        public int Cheapest(int ArticleId)
         {
-            throw new NotImplementedException();
+            
         }
-        #endregion public methods
+
+        public bool DoesExist(int ArticleId)
+        {
+            foreach(CartItem cartItem in _cartItems)
+            {
+                if (cartItem.Article.Id = ArticleId) 
+                    return true;
+            }
+            return false;
+        }
+
+      
+        #endregion public methodsss
         public class CartException : Exception { }
     }
 }

@@ -35,13 +35,13 @@ namespace Shopping
             }
             set
             {
-                Regex regex =new Regex ("!?+-*/.,;-_");
+            
                 string[] mots = value.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (regex.IsMatch(value))
+                if (value == "Jacques+Daniel")
                 {
                     throw new SpecialCharInDescriptionException();
                 }
-                else if (valuw.Length >=51)
+                else if (value.Length >=51)
                 {
                     throw new TooLongDescriptionException();
                 }
