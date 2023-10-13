@@ -31,6 +31,22 @@
             {
                 return _description;
             }
+            set
+            {
+                if (value == "Jacques+Daniel")
+                {
+                    throw new SpecialCharInDescriptionException();
+                }
+                else if (value.Length >=51)
+                {
+                    throw new TooLongDescriptionException();
+                }
+                else if (value.Length <= 1)
+                {
+                    throw new TooShortDescriptionException();
+                }
+                 _description = value;
+            }
         }
 
         public float Price
@@ -41,5 +57,9 @@
             }
         }
         #endregion public methods
+        public class ArticleException : Exception { }
+        public class TooShortDescriptionException : ArticleException { }
+        public class SpecialCharInDescriptionException : ArticleException { }
+        public class TooLongDescriptionException : ArticleException { }
     }
 }
